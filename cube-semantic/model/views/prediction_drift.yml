@@ -1,0 +1,27 @@
+# @architecture
+# owner: cube-semantic-layer
+# features:
+#   - cube-semantic-layer
+# stages:
+#   - semantic-layer
+# capabilities:
+#   - cube-semantic-layer.cube-business-views
+#   - cube-semantic-layer.governed-metric-definitions
+# role: semantic-view
+# canonical: true
+
+views:
+  - name: prediction_drift
+    description: >
+      Distribution of predicted_ltv values per scoring run.
+      Use to detect if model output distribution shifts over time.
+      Source: rai_prediction_drift. Consumers: Model Monitoring dashboard.
+    cubes:
+      - join_path: rai_prediction_drift
+        includes:
+          - scoring_run_id
+          - model_name
+          - evaluation_date
+          - mean_prediction
+          - stddev_prediction
+          - total_predictions

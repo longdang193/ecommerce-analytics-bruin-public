@@ -1,0 +1,32 @@
+# @architecture
+# owner: cube-semantic-layer
+# features:
+#   - cube-semantic-layer
+# stages:
+#   - semantic-layer
+# capabilities:
+#   - cube-semantic-layer.cube-business-views
+#   - cube-semantic-layer.governed-metric-definitions
+# role: semantic-view
+# canonical: true
+
+views:
+  - name: customer_segments
+    description: >
+      Business segmentation view — who are our customers by RFM?
+      Source: rfm_segments. Consumers: Customer Segments dashboard.
+      Note: country not exposed — field not present in rfm_segments table.
+    cubes:
+      - join_path: rfm_segments
+        includes:
+          - user_pseudo_id
+          - snapshot_date
+          - customer_segment
+          - rfm_segment
+          - r_score
+          - f_score
+          - m_score
+          - customer_count
+          - avg_monetary
+          - avg_recency_days
+          - avg_frequency

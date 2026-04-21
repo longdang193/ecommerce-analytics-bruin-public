@@ -1,0 +1,28 @@
+# @architecture
+# owner: lineage-and-observability
+# features:
+#   - cube-semantic-layer
+#   - lineage-and-observability
+# stages:
+#   - observability
+#   - semantic-layer
+# capabilities:
+#   - cube-semantic-layer.cube-business-views
+#   - cube-semantic-layer.governed-metric-definitions
+#   - lineage-and-observability.scoring-freshness-view
+# role: semantic-view
+# canonical: true
+
+views:
+  - name: scoring_freshness
+    description: >
+      Shows when the LTV model last scored customers and how many were covered.
+      Use to monitor model scoring freshness — alert if last run is > 7 days ago.
+    cubes:
+      - join_path: ml_scoring_runs
+        includes:
+          - model_name
+          - scored_at
+          - rows_scored
+          - run_count
+          - latest_rows_scored
