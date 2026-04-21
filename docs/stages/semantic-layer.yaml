@@ -16,7 +16,7 @@ outputs:
 - Cube views
 - governed SQL API for BI
 notes:
-- Stage ownership is declared here; feature capability participation stays in feature.source.yaml.
+- Stage ownership is summarized in this public contract; private source-layer authoring is redacted in the public mirror.
 feature_refs:
 - cube-semantic-layer
 capability_refs:

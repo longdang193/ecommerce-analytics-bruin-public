@@ -20,7 +20,7 @@ outputs:
 - monitoring tables
 - Responsible AI alert signals
 notes:
-- Stage ownership is declared here; feature capability participation stays in feature.source.yaml.
+- Stage ownership is summarized in this public contract; private source-layer authoring is redacted in the public mirror.
 feature_refs:
 - lineage-and-observability
 capability_refs:

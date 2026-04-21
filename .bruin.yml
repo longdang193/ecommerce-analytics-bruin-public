@@ -5,12 +5,4 @@ environments:
             google_cloud_platform:
                 - name: gcp
                   project_id: ecommerce-analytics-bruin
-                  service_account_file: ""
-            duckdb:
-                - name: duckdb-default
-                  path: duckdb.db
-            chess:
-                - name: chess-default
-                  players:
-                    - MagnusCarlsen
-                    - Hikaru
+                  service_account_json: $GCP_SERVICE_ACCOUNT_KEY

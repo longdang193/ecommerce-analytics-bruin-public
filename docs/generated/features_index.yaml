@@ -1,5 +1,5 @@
 # GENERATED FILE - do not edit directly.
-# Source: managed architecture metadata sources
+# Source: redacted in public mirror
 
 features:
 - feature_id: analytics-serving-layer
@@ -14,7 +14,6 @@ features:
   source: redacted in public mirror
   lineage: redacted in public mirror
   history: []
-- feature_id: cube-semantic-layer
   version: '1.0'
   status: active
   type: add
@@ -26,7 +25,6 @@ features:
   source: redacted in public mirror
   lineage: redacted in public mirror
   history: []
-- feature_id: data-pipeline
   version: '1.0'
   status: active
   type: add
@@ -39,7 +37,6 @@ features:
   source: redacted in public mirror
   lineage: redacted in public mirror
   history: []
-- feature_id: deployment-cicd
   version: '1.0'
   status: building
   type: add
@@ -51,7 +48,6 @@ features:
   source: redacted in public mirror
   lineage: redacted in public mirror
   history: []
-- feature_id: lineage-and-observability
   version: '1.0'
   status: active
   type: add

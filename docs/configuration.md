@@ -10,6 +10,9 @@ The core runtime and delivery behavior is defined by:
   - Bruin pipeline definition
   - environment separation between `dev` and `prod`
   - BigQuery connection settings sourced from `GCP_SERVICE_ACCOUNT_KEY`
+- `.bruin.yml`
+  - local Bruin connection configuration for repo-level validation and execution
+  - sanitized in the public mirror to keep only the public GCP connection shape
 - `.env.local.example`
   - local example for credential injection
 - `.github/workflows/ci.yml`
@@ -39,6 +42,11 @@ This project expects:
 - `GCP_SERVICE_ACCOUNT_KEY` for Bruin and workflow execution
 - local credentials to live in `.env.local` or another secure local secret mechanism
 - GitHub Actions secrets to provide the credential material for CI or scheduled runs
+
+In the public repo, configure `GCP_SERVICE_ACCOUNT_KEY` before running
+`bruin validate .` because the validation path keeps the real BigQuery
+connection shape. That variable must be available in the active shell or CI
+environment where Bruin runs.
 
 Do not commit:
 

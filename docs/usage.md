@@ -4,7 +4,8 @@ Use this guide for normal day-to-day DE-PROJECT operations.
 
 ## Common Validation Flow
 
-Validate the pipeline structure before running it:
+Configure `GCP_SERVICE_ACCOUNT_KEY` in the active shell first, then validate
+the pipeline structure:
 
 ```powershell
 bruin validate .

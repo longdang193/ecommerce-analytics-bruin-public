@@ -45,6 +45,13 @@ Important rules:
 - do not commit raw service account JSON
 - use a service account that can read the public GA4 dataset and write to the target datasets
 
+The public repo keeps the real BigQuery connection shape, so configure
+credentials before running Bruin validation or pipeline commands.
+
+Make sure `GCP_SERVICE_ACCOUNT_KEY` is available in the shell where you run
+Bruin, either by exporting it directly or by loading it from your local env
+tooling.
+
 ## Optional Cube Setup
 
 If you want to validate the semantic layer locally:

@@ -59,9 +59,13 @@ Create a local `.env.local` from `.env.local.example` and set:
 
 - `GCP_SERVICE_ACCOUNT_KEY`
 
-Keep credentials out of Git. The checked-in example file is only a template.
+Load that value into your active shell before running Bruin commands. Keep
+credentials out of Git. The checked-in example file is only a template.
 
 ### 3. Validate the pipeline
+
+Bruin validation in this project expects credentials to be configured first,
+because the public mirror keeps the real BigQuery connection shape.
 
 ```powershell
 bruin validate .

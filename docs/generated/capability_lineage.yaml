@@ -1,9 +1,9 @@
 # GENERATED FILE - do not edit directly.
-# Source: managed architecture metadata sources
+# Source: redacted in public mirror
 
 features:
   analytics-serving-layer:
-    source: docs/features/analytics-serving-layer/feature.source.yaml
+    source: redacted in public mirror
     status: active
     depends_on:
     - data-pipeline
@@ -38,8 +38,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -80,8 +80,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -142,8 +142,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -151,7 +151,7 @@ features:
         unresolved_evidence_gaps: []
         completeness_status: excepted
   cube-semantic-layer:
-    source: docs/features/cube-semantic-layer/feature.source.yaml
+    source: redacted in public mirror
     status: active
     depends_on:
     - analytics-serving-layer
@@ -244,8 +244,8 @@ features:
           - cube_yaml_architecture
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -341,8 +341,8 @@ features:
           - cube_yaml_architecture
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -509,8 +509,8 @@ features:
           - cube_yaml_architecture
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -533,8 +533,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_source_evidence
         - missing_test_evidence
@@ -547,7 +547,7 @@ features:
 
           '
   data-pipeline:
-    source: docs/features/data-pipeline/feature.source.yaml
+    source: redacted in public mirror
     status: active
     depends_on: []
     capabilities:
@@ -581,8 +581,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -611,8 +611,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -653,8 +653,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -707,8 +707,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -741,8 +741,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -773,8 +773,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -782,7 +782,7 @@ features:
         unresolved_evidence_gaps: []
         completeness_status: excepted
   deployment-cicd:
-    source: docs/features/deployment-cicd/feature.source.yaml
+    source: redacted in public mirror
     status: building
     depends_on:
     - data-pipeline
@@ -813,8 +813,8 @@ features:
           - workflow_architecture
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -838,8 +838,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_source_evidence
         - missing_test_evidence
@@ -884,8 +884,8 @@ features:
           - pipeline_config_architecture
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -917,8 +917,8 @@ features:
           - project_config_architecture
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -952,8 +952,8 @@ features:
           - workflow_architecture
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -961,7 +961,7 @@ features:
         unresolved_evidence_gaps: []
         completeness_status: excepted
   lineage-and-observability:
-    source: docs/features/lineage-and-observability/feature.source.yaml
+    source: redacted in public mirror
     status: active
     depends_on:
     - data-pipeline
@@ -989,8 +989,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -1018,8 +1018,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -1047,8 +1047,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -1089,8 +1089,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -1135,8 +1135,8 @@ features:
           - cube_yaml_architecture
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -1180,8 +1180,8 @@ features:
           - cube_yaml_architecture
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
@@ -1209,8 +1209,8 @@ features:
         config_evidence: []
         components: []
         component_evidence: []
-        specs:
-        plans:
+        specs: []
+        plans: []
         evidence_gaps:
         - missing_test_evidence
         allowed_evidence_gaps:
