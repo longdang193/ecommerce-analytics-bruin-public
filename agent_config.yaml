@@ -1,0 +1,32 @@
+# agent_config.yaml
+# Centralized configuration for AI Agents (Antigravity/Cursor/Claude Code)
+# Agents MUST read this file before scaffolding Phase 0 or generating SQL assets.
+#
+# @architecture
+# owner: deployment-cicd
+# features:
+#   - deployment-cicd
+# stages:
+#   - deployment
+# capabilities:
+#   - deployment-cicd.local-secret-setup
+# role: project-config
+# canonical: true
+
+gcp_connection:
+  # Replaces <PROJECT> and <YOUR_GCP_PROJECT_ID>
+  project_id: "ecommerce-analytics-bruin"
+  
+  # Replaces <PATH_TO_SERVICE_ACCOUNT_JSON>
+  service_account_file: ""
+
+bruin_pipeline:
+  name: "ecommerce-analytics-bruin"
+  # The BigQuery dataset where the tables/models will be created (e.g., <PROJECT>.de_pipeline)
+  dataset_name: "de_pipeline"
+  schedule: "daily"
+
+source_data:
+  # The GA4 public dataset we are querying from 
+  # Used in 1_staging/stg_events_flat.sql
+  ga4_source_table: "bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*"

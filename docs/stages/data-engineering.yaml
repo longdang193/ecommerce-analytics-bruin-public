@@ -1,0 +1,53 @@
+# GENERATED FILE - do not edit directly.
+# Source: docs/stages/*.source.yaml
+
+stage_id: data-engineering
+name: Data Engineering
+status: active
+purpose: Ingest, flatten, model, and materialize GA4 ecommerce data into analytics-ready BigQuery assets.
+primary_features:
+- data-pipeline
+supporting_features: []
+inputs:
+- GA4 public ecommerce event export
+outputs:
+- staging tables
+- intermediate session and customer tables
+- analytics marts
+- ML and RAI tables
+- observability tables
+notes:
+- Stage ownership is declared here; feature capability participation stays in feature.source.yaml.
+feature_refs:
+- data-pipeline
+capability_refs:
+- data-pipeline.analytics-mart-materialization
+- data-pipeline.ltv-feature-engineering
+- data-pipeline.pipeline-observability-tables
+- data-pipeline.responsible-ai-evaluation
+- data-pipeline.session-customer-modeling
+- data-pipeline.staging-ga4-events
+code_refs:
+- assets/1_staging/stg_events_flat.sql
+- assets/2_intermediate/int_customers.sql
+- assets/2_intermediate/int_sessions.sql
+- assets/3_marts/funnel_daily.sql
+- assets/3_marts/kpi_daily.sql
+- assets/3_marts/rfm_segments.sql
+- assets/4_ml/ltv_features.sql
+- assets/4_ml/ltv_model_train.sql
+- assets/4_ml/ltv_prediction_history.sql
+- assets/4_ml/ltv_predictions.sql
+- assets/5_rai/rai_feature_importance.sql
+- assets/5_rai/rai_model_eval.sql
+- assets/5_rai/rai_prediction_drift.sql
+- assets/5_rai/rai_segment_parity.sql
+- assets/6_observability/data_quality_results.sql
+- assets/6_observability/model_monitoring_status.sql
+- assets/6_observability/pipeline_run_log.sql
+- assets/6_observability/table_freshness_status.sql
+test_refs: []
+doc_refs:
+- docs/lineage.md
+config_refs: []
+component_refs: []

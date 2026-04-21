@@ -1,0 +1,1219 @@
+# GENERATED FILE - do not edit directly.
+# Source: managed architecture metadata sources
+
+features:
+  analytics-serving-layer:
+    source: docs/features/analytics-serving-layer/feature.source.yaml
+    status: active
+    depends_on:
+    - data-pipeline
+    capabilities:
+      analytics-serving-layer.ml-operations-tables:
+        name: ML Operations Tables
+        summary: Publish model registry, training run, and scoring run tables.
+        state: active
+        satisfies:
+        - serving-dataset-boundary
+        - pipeline-owned-materialization
+        - stable-table-names
+        code:
+        - path: assets/4_ml/ml_model_registry.sql
+          role: operations-table
+          source:
+          - sql_architecture
+        - path: assets/4_ml/ml_scoring_runs.sql
+          role: operations-table
+          source:
+          - sql_architecture
+        - path: assets/4_ml/ml_training_runs.sql
+          role: operations-table
+          source:
+          - sql_architecture
+        tests: []
+        docs:
+        - docs/pipeline.md
+        - docs/architecture.md
+        docs_evidence: []
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      analytics-serving-layer.observability-status-tables:
+        name: Observability Status Tables
+        summary: Publish pipeline run, data quality, freshness, and model monitoring status tables.
+        state: active
+        satisfies:
+        - serving-dataset-boundary
+        - pipeline-owned-materialization
+        - stable-table-names
+        code:
+        - path: assets/6_observability/data_quality_results.sql
+          role: observability-table
+          source:
+          - sql_architecture
+        - path: assets/6_observability/model_monitoring_status.sql
+          role: observability-table
+          source:
+          - sql_architecture
+        - path: assets/6_observability/pipeline_run_log.sql
+          role: observability-table
+          source:
+          - sql_architecture
+        - path: assets/6_observability/table_freshness_status.sql
+          role: observability-table
+          source:
+          - sql_architecture
+        tests: []
+        docs:
+        - docs/pipeline.md
+        - docs/architecture.md
+        docs_evidence: []
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      analytics-serving-layer.serving-analytics-tables:
+        name: Serving Analytics Tables
+        summary: Publish curated KPI, funnel, RFM, LTV, and Responsible AI tables for downstream analytics.
+        state: active
+        satisfies:
+        - serving-dataset-boundary
+        - pipeline-owned-materialization
+        - stable-table-names
+        code:
+        - path: assets/3_marts/funnel_daily.sql
+          role: mart
+          source:
+          - sql_architecture
+        - path: assets/3_marts/kpi_daily.sql
+          role: mart
+          source:
+          - sql_architecture
+        - path: assets/3_marts/rfm_segments.sql
+          role: mart
+          source:
+          - sql_architecture
+        - path: assets/4_ml/ltv_prediction_history.sql
+          role: prediction-table
+          source:
+          - sql_architecture
+        - path: assets/4_ml/ltv_predictions.sql
+          role: prediction-table
+          source:
+          - sql_architecture
+        - path: assets/5_rai/rai_feature_importance.sql
+          role: rai-table
+          source:
+          - sql_architecture
+        - path: assets/5_rai/rai_model_eval.sql
+          role: rai-table
+          source:
+          - sql_architecture
+        - path: assets/5_rai/rai_prediction_drift.sql
+          role: rai-table
+          source:
+          - sql_architecture
+        - path: assets/5_rai/rai_segment_parity.sql
+          role: rai-table
+          source:
+          - sql_architecture
+        tests: []
+        docs:
+        - docs/pipeline.md
+        - docs/architecture.md
+        docs_evidence: []
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+  cube-semantic-layer:
+    source: docs/features/cube-semantic-layer/feature.source.yaml
+    status: active
+    depends_on:
+    - analytics-serving-layer
+    capabilities:
+      cube-semantic-layer.cube-business-views:
+        name: Cube Business Views
+        summary: Expose business-topic views for executive KPIs, funnels, segments, predictive LTV, model evaluation, and monitoring.
+        state: active
+        satisfies:
+        - single-cube-views
+        code: []
+        tests: []
+        docs:
+        - docs/architecture.md
+        - docs/pipeline.md
+        docs_evidence: []
+        configs:
+        - path: cube-semantic/model/views/customer_segments.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/executive_kpis.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/feature_importance.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/funnel_performance.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/model_eval.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/prediction_drift.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/predictive_ltv.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/scoring_freshness.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/segment_monitoring.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        config_evidence:
+        - path: cube-semantic/model/views/customer_segments.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/executive_kpis.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/feature_importance.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/funnel_performance.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/model_eval.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/prediction_drift.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/predictive_ltv.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/scoring_freshness.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/segment_monitoring.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      cube-semantic-layer.cube-physical-table-modeling:
+        name: Cube Physical Table Modeling
+        summary: Define Cube models for the BigQuery serving tables.
+        state: active
+        satisfies:
+        - cube-cloud-deployment
+        - local-playground-only
+        code: []
+        tests: []
+        docs:
+        - docs/architecture.md
+        - docs/pipeline.md
+        docs_evidence: []
+        configs:
+        - path: cube-semantic/model/cubes/funnel_daily.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/kpi_daily.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/ltv_predictions.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/ml_scoring_runs.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_feature_importance.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_model_eval.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_prediction_drift.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_segment_parity.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rfm_segments.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        config_evidence:
+        - path: cube-semantic/model/cubes/funnel_daily.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/kpi_daily.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/ltv_predictions.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/ml_scoring_runs.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_feature_importance.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_model_eval.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_prediction_drift.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_segment_parity.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rfm_segments.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      cube-semantic-layer.governed-metric-definitions:
+        name: Governed Metric Definitions
+        summary: Centralize approved formulas for revenue, orders, sessions, conversion rates, model scores, parity, alerts, and drift.
+        state: active
+        satisfies:
+        - weighted-ratio-measures
+        code: []
+        tests: []
+        docs:
+        - docs/architecture.md
+        - docs/pipeline.md
+        docs_evidence: []
+        configs:
+        - path: cube-semantic/model/cubes/funnel_daily.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/kpi_daily.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/ltv_predictions.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/ml_scoring_runs.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_feature_importance.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_model_eval.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_prediction_drift.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_segment_parity.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rfm_segments.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/customer_segments.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/executive_kpis.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/feature_importance.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/funnel_performance.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/model_eval.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/prediction_drift.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/predictive_ltv.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/scoring_freshness.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/segment_monitoring.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        config_evidence:
+        - path: cube-semantic/model/cubes/funnel_daily.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/kpi_daily.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/ltv_predictions.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/ml_scoring_runs.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_feature_importance.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_model_eval.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_prediction_drift.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rai_segment_parity.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/cubes/rfm_segments.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/customer_segments.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/executive_kpis.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/feature_importance.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/funnel_performance.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/model_eval.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/prediction_drift.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/predictive_ltv.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/scoring_freshness.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/segment_monitoring.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      cube-semantic-layer.looker-studio-sql-api:
+        name: Looker Studio SQL API
+        summary: Support Looker Studio access through Cube Cloud's PostgreSQL-compatible SQL API.
+        state: active
+        satisfies:
+        - sql-api-protocol
+        code: []
+        tests: []
+        docs:
+        - docs/architecture.md
+        - docs/pipeline.md
+        docs_evidence: []
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_source_evidence
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_source_evidence
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+        lineage_exception_reason: 'Looker Studio connectivity is configured in Cube Cloud and Looker Studio outside this repo. Repo-owned Cube YAML defines the semantic surface, but the BI SQL API connection itself is external.
+
+          '
+  data-pipeline:
+    source: docs/features/data-pipeline/feature.source.yaml
+    status: active
+    depends_on: []
+    capabilities:
+      data-pipeline.analytics-mart-materialization:
+        name: Analytics Mart Materialization
+        summary: Materialize KPI, funnel, and RFM mart tables for downstream analytics.
+        state: active
+        satisfies:
+        - destination-dataset-boundary
+        - project-placeholder
+        code:
+        - path: assets/3_marts/funnel_daily.sql
+          role: mart
+          source:
+          - sql_architecture
+        - path: assets/3_marts/kpi_daily.sql
+          role: mart
+          source:
+          - sql_architecture
+        - path: assets/3_marts/rfm_segments.sql
+          role: mart
+          source:
+          - sql_architecture
+        tests: []
+        docs:
+        - docs/pipeline.md
+        - docs/architecture.md
+        - docs/bigquery-public-data.ga4_obfuscated_sample_ecommerce Dataset.md
+        docs_evidence: []
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      data-pipeline.ltv-feature-engineering:
+        name: LTV Feature Engineering
+        summary: Build customer behavioral features and proxy LTV labels for BigQuery ML workflows.
+        state: active
+        satisfies:
+        - destination-dataset-boundary
+        - project-placeholder
+        code:
+        - path: assets/4_ml/ltv_features.sql
+          role: feature-table
+          source:
+          - sql_architecture
+        tests: []
+        docs:
+        - docs/pipeline.md
+        - docs/architecture.md
+        - docs/bigquery-public-data.ga4_obfuscated_sample_ecommerce Dataset.md
+        docs_evidence: []
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      data-pipeline.pipeline-observability-tables:
+        name: Pipeline Observability Tables
+        summary: Produce run log, data quality, freshness, and model monitoring status tables.
+        state: active
+        satisfies:
+        - destination-dataset-boundary
+        - project-placeholder
+        code:
+        - path: assets/6_observability/data_quality_results.sql
+          role: observability-table
+          source:
+          - sql_architecture
+        - path: assets/6_observability/model_monitoring_status.sql
+          role: observability-table
+          source:
+          - sql_architecture
+        - path: assets/6_observability/pipeline_run_log.sql
+          role: observability-table
+          source:
+          - sql_architecture
+        - path: assets/6_observability/table_freshness_status.sql
+          role: observability-table
+          source:
+          - sql_architecture
+        tests: []
+        docs:
+        - docs/pipeline.md
+        - docs/architecture.md
+        - docs/bigquery-public-data.ga4_obfuscated_sample_ecommerce Dataset.md
+        docs_evidence: []
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      data-pipeline.responsible-ai-evaluation:
+        name: Responsible AI Evaluation
+        summary: Materialize model evaluation, feature importance, parity, and prediction drift tables.
+        state: active
+        satisfies:
+        - destination-dataset-boundary
+        - project-placeholder
+        code:
+        - path: assets/4_ml/ltv_model_train.sql
+          role: ml-training
+          source:
+          - sql_architecture
+        - path: assets/4_ml/ltv_prediction_history.sql
+          role: prediction-table
+          source:
+          - sql_architecture
+        - path: assets/4_ml/ltv_predictions.sql
+          role: prediction-table
+          source:
+          - sql_architecture
+        - path: assets/5_rai/rai_feature_importance.sql
+          role: rai-table
+          source:
+          - sql_architecture
+        - path: assets/5_rai/rai_model_eval.sql
+          role: rai-table
+          source:
+          - sql_architecture
+        - path: assets/5_rai/rai_prediction_drift.sql
+          role: rai-table
+          source:
+          - sql_architecture
+        - path: assets/5_rai/rai_segment_parity.sql
+          role: rai-table
+          source:
+          - sql_architecture
+        tests: []
+        docs:
+        - docs/pipeline.md
+        - docs/architecture.md
+        - docs/bigquery-public-data.ga4_obfuscated_sample_ecommerce Dataset.md
+        docs_evidence: []
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      data-pipeline.session-customer-modeling:
+        name: Session And Customer Modeling
+        summary: Build intermediate session and customer base tables from flattened events.
+        state: active
+        satisfies:
+        - destination-dataset-boundary
+        - project-placeholder
+        code:
+        - path: assets/2_intermediate/int_customers.sql
+          role: model
+          source:
+          - sql_architecture
+        - path: assets/2_intermediate/int_sessions.sql
+          role: model
+          source:
+          - sql_architecture
+        tests: []
+        docs:
+        - docs/pipeline.md
+        - docs/architecture.md
+        - docs/bigquery-public-data.ga4_obfuscated_sample_ecommerce Dataset.md
+        docs_evidence: []
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      data-pipeline.staging-ga4-events:
+        name: Staging GA4 Events
+        summary: Flatten nested GA4 event, device, geo, traffic, ecommerce, and event parameter fields.
+        state: active
+        satisfies:
+        - bounded-ga4-source
+        - project-placeholder
+        - source-read-only
+        - batch-sample-read
+        code:
+        - path: assets/1_staging/stg_events_flat.sql
+          role: source
+          source:
+          - sql_architecture
+        tests: []
+        docs:
+        - docs/pipeline.md
+        - docs/architecture.md
+        - docs/bigquery-public-data.ga4_obfuscated_sample_ecommerce Dataset.md
+        docs_evidence: []
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+  deployment-cicd:
+    source: docs/features/deployment-cicd/feature.source.yaml
+    status: building
+    depends_on:
+    - data-pipeline
+    - cube-semantic-layer
+    capabilities:
+      deployment-cicd.continuous-validation:
+        name: Continuous Validation
+        summary: Validate Bruin pipeline definitions and Cube semantic model changes on push and pull request.
+        state: active
+        satisfies:
+        - ubuntu-actions-runners
+        code: []
+        tests: []
+        docs:
+        - docs/architecture.md
+        - docs/configuration.md
+        - docs/usage.md
+        docs_evidence: []
+        configs:
+        - path: .github/workflows/ci.yml
+          role: workflow
+          source:
+          - workflow_architecture
+        config_evidence:
+        - path: .github/workflows/ci.yml
+          role: workflow
+          source:
+          - workflow_architecture
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      deployment-cicd.cube-cloud-auto-deploy:
+        name: Cube Cloud Auto Deploy
+        summary: Rebuild Cube Cloud from pushes to `main` through the GitHub integration.
+        state: active
+        satisfies:
+        - cube-compose-local-only
+        code: []
+        tests: []
+        docs:
+        - docs/architecture.md
+        - docs/configuration.md
+        - docs/usage.md
+        docs_evidence: []
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_source_evidence
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_source_evidence
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+        lineage_exception_reason: 'Cube Cloud auto-deploy is owned by the external Cube Cloud GitHub integration, not by a repo-owned workflow or config file.
+
+          '
+      deployment-cicd.environment-separated-runs:
+        name: Environment-Separated Runs
+        summary: Separate dev and prod runs into `de_pipeline_dev` and `de_pipeline` datasets.
+        state: active
+        satisfies:
+        - no-bruin-docker-production
+        code: []
+        tests: []
+        docs:
+        - docs/architecture.md
+        - docs/configuration.md
+        - docs/usage.md
+        docs_evidence: []
+        configs:
+        - path: .github/workflows/scheduled-run.yml
+          role: workflow
+          source:
+          - workflow_architecture
+        - path: pipeline.yml
+          role: pipeline-config
+          source:
+          - pipeline_config_architecture
+        config_evidence:
+        - path: .github/workflows/scheduled-run.yml
+          role: workflow
+          source:
+          - workflow_architecture
+        - path: pipeline.yml
+          role: pipeline-config
+          source:
+          - pipeline_config_architecture
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      deployment-cicd.local-secret-setup:
+        name: Local Secret Setup
+        summary: Document local `.env.local` usage without committing credentials.
+        state: active
+        satisfies:
+        - credentials-in-github-secret
+        code: []
+        tests: []
+        docs:
+        - docs/architecture.md
+        - docs/configuration.md
+        - docs/usage.md
+        docs_evidence: []
+        configs:
+        - path: agent_config.yaml
+          role: project-config
+          source:
+          - project_config_architecture
+        config_evidence:
+        - path: agent_config.yaml
+          role: project-config
+          source:
+          - project_config_architecture
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      deployment-cicd.scheduled-production-run:
+        name: Scheduled Production Run
+        summary: Run the production Bruin pipeline on a daily GitHub Actions schedule.
+        state: active
+        satisfies:
+        - ubuntu-actions-runners
+        - manual-workflow-dispatch
+        - no-bruin-docker-production
+        code: []
+        tests: []
+        docs:
+        - docs/architecture.md
+        - docs/configuration.md
+        - docs/usage.md
+        docs_evidence: []
+        configs:
+        - path: .github/workflows/scheduled-run.yml
+          role: workflow
+          source:
+          - workflow_architecture
+        config_evidence:
+        - path: .github/workflows/scheduled-run.yml
+          role: workflow
+          source:
+          - workflow_architecture
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+  lineage-and-observability:
+    source: docs/features/lineage-and-observability/feature.source.yaml
+    status: active
+    depends_on:
+    - data-pipeline
+    - analytics-serving-layer
+    - cube-semantic-layer
+    capabilities:
+      lineage-and-observability.data-lineage-diagram:
+        name: Data Lineage Diagram
+        summary: Trace source, staging, intermediate, and mart tables.
+        state: active
+        satisfies:
+        - lineage-in-docs
+        code: []
+        tests: []
+        docs:
+        - docs/lineage.md
+        - docs/architecture.md
+        - docs/pipeline.md
+        docs_evidence:
+        - path: docs/lineage.md
+          role: explanation
+          source:
+          - docs_frontmatter
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      lineage-and-observability.ml-lineage-diagram:
+        name: ML Lineage Diagram
+        summary: Trace mart tables, feature tables, BQML model training, predictions, and Responsible AI tables.
+        state: active
+        satisfies:
+        - lineage-in-docs
+        code: []
+        tests: []
+        docs:
+        - docs/lineage.md
+        - docs/architecture.md
+        - docs/pipeline.md
+        docs_evidence:
+        - path: docs/lineage.md
+          role: explanation
+          source:
+          - docs_frontmatter
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      lineage-and-observability.model-monitoring-status-enrichment:
+        name: Model Monitoring Status Enrichment
+        summary: Include last scored timestamp and total rows scored in model monitoring status.
+        state: active
+        satisfies:
+        - observability-mvp-placeholders
+        code:
+        - path: assets/6_observability/model_monitoring_status.sql
+          role: observability-table
+          source:
+          - sql_architecture
+        tests: []
+        docs:
+        - docs/lineage.md
+        - docs/architecture.md
+        - docs/pipeline.md
+        docs_evidence: []
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      lineage-and-observability.observability-lineage-diagram:
+        name: Observability Lineage Diagram
+        summary: Trace pipeline runs into monitoring and status tables.
+        state: active
+        satisfies:
+        - lineage-in-docs
+        - observability-mvp-placeholders
+        code:
+        - path: assets/6_observability/data_quality_results.sql
+          role: observability-table
+          source:
+          - sql_architecture
+        - path: assets/6_observability/pipeline_run_log.sql
+          role: observability-table
+          source:
+          - sql_architecture
+        - path: assets/6_observability/table_freshness_status.sql
+          role: observability-table
+          source:
+          - sql_architecture
+        tests: []
+        docs:
+        - docs/lineage.md
+        - docs/architecture.md
+        - docs/pipeline.md
+        docs_evidence:
+        - path: docs/lineage.md
+          role: explanation
+          source:
+          - docs_frontmatter
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      lineage-and-observability.parity-alert-monitoring:
+        name: Parity Alert Monitoring
+        summary: Flag segment parity gaps above the 20 percent relative threshold.
+        state: active
+        satisfies:
+        - parity-alert-threshold
+        - observability-mvp-placeholders
+        code:
+        - path: assets/5_rai/rai_segment_parity.sql
+          role: rai-table
+          source:
+          - sql_architecture
+        tests: []
+        docs:
+        - docs/lineage.md
+        - docs/architecture.md
+        - docs/pipeline.md
+        docs_evidence: []
+        configs:
+        - path: cube-semantic/model/cubes/rai_segment_parity.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/segment_monitoring.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        config_evidence:
+        - path: cube-semantic/model/cubes/rai_segment_parity.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/segment_monitoring.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      lineage-and-observability.scoring-freshness-view:
+        name: Scoring Freshness View
+        summary: Expose model scoring freshness through Cube from `ml_scoring_runs`.
+        state: active
+        satisfies:
+        - observability-mvp-placeholders
+        code:
+        - path: assets/4_ml/ml_scoring_runs.sql
+          role: operations-table
+          source:
+          - sql_architecture
+        tests: []
+        docs:
+        - docs/lineage.md
+        - docs/architecture.md
+        - docs/pipeline.md
+        docs_evidence: []
+        configs:
+        - path: cube-semantic/model/cubes/ml_scoring_runs.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/scoring_freshness.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        config_evidence:
+        - path: cube-semantic/model/cubes/ml_scoring_runs.yml
+          role: semantic-cube
+          source:
+          - cube_yaml_architecture
+        - path: cube-semantic/model/views/scoring_freshness.yml
+          role: semantic-view
+          source:
+          - cube_yaml_architecture
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted
+      lineage-and-observability.semantic-lineage-diagram:
+        name: Semantic Lineage Diagram
+        summary: Trace BigQuery serving tables through Cube cubes, Cube views, and BI consumers.
+        state: active
+        satisfies:
+        - lineage-in-docs
+        code: []
+        tests: []
+        docs:
+        - docs/lineage.md
+        - docs/architecture.md
+        - docs/pipeline.md
+        docs_evidence:
+        - path: docs/lineage.md
+          role: explanation
+          source:
+          - docs_frontmatter
+        configs: []
+        config_evidence: []
+        components: []
+        component_evidence: []
+        specs:
+        plans:
+        evidence_gaps:
+        - missing_test_evidence
+        allowed_evidence_gaps:
+        - missing_test_evidence
+        unresolved_evidence_gaps: []
+        completeness_status: excepted

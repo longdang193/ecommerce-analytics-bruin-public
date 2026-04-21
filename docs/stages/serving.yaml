@@ -1,0 +1,45 @@
+# GENERATED FILE - do not edit directly.
+# Source: docs/stages/*.source.yaml
+
+stage_id: serving
+name: Analytics Serving
+status: active
+purpose: Publish curated BigQuery serving tables as the physical analytical truth surface.
+primary_features:
+- analytics-serving-layer
+supporting_features:
+- data-pipeline
+inputs:
+- materialized Bruin pipeline outputs
+outputs:
+- trusted BigQuery serving tables
+notes:
+- Stage ownership is declared here; feature capability participation stays in feature.source.yaml.
+feature_refs:
+- analytics-serving-layer
+capability_refs:
+- analytics-serving-layer.ml-operations-tables
+- analytics-serving-layer.observability-status-tables
+- analytics-serving-layer.serving-analytics-tables
+code_refs:
+- assets/3_marts/funnel_daily.sql
+- assets/3_marts/kpi_daily.sql
+- assets/3_marts/rfm_segments.sql
+- assets/4_ml/ltv_prediction_history.sql
+- assets/4_ml/ltv_predictions.sql
+- assets/4_ml/ml_model_registry.sql
+- assets/4_ml/ml_scoring_runs.sql
+- assets/4_ml/ml_training_runs.sql
+- assets/5_rai/rai_feature_importance.sql
+- assets/5_rai/rai_model_eval.sql
+- assets/5_rai/rai_prediction_drift.sql
+- assets/5_rai/rai_segment_parity.sql
+- assets/6_observability/data_quality_results.sql
+- assets/6_observability/model_monitoring_status.sql
+- assets/6_observability/pipeline_run_log.sql
+- assets/6_observability/table_freshness_status.sql
+test_refs: []
+doc_refs:
+- docs/lineage.md
+config_refs: []
+component_refs: []

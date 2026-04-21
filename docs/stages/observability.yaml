@@ -1,0 +1,49 @@
+# GENERATED FILE - do not edit directly.
+# Source: docs/stages/*.source.yaml
+
+stage_id: observability
+name: Observability
+status: active
+purpose: Track lineage, freshness, data quality, model monitoring, and Responsible AI signals.
+primary_features:
+- lineage-and-observability
+supporting_features:
+- data-pipeline
+- analytics-serving-layer
+- cube-semantic-layer
+inputs:
+- pipeline outputs
+- model outputs
+- Cube semantic surfaces
+outputs:
+- lineage diagrams
+- monitoring tables
+- Responsible AI alert signals
+notes:
+- Stage ownership is declared here; feature capability participation stays in feature.source.yaml.
+feature_refs:
+- lineage-and-observability
+capability_refs:
+- lineage-and-observability.data-lineage-diagram
+- lineage-and-observability.ml-lineage-diagram
+- lineage-and-observability.model-monitoring-status-enrichment
+- lineage-and-observability.observability-lineage-diagram
+- lineage-and-observability.parity-alert-monitoring
+- lineage-and-observability.scoring-freshness-view
+- lineage-and-observability.semantic-lineage-diagram
+code_refs:
+- assets/4_ml/ml_scoring_runs.sql
+- assets/5_rai/rai_segment_parity.sql
+- assets/6_observability/data_quality_results.sql
+- assets/6_observability/model_monitoring_status.sql
+- assets/6_observability/pipeline_run_log.sql
+- assets/6_observability/table_freshness_status.sql
+test_refs: []
+doc_refs:
+- docs/lineage.md
+config_refs:
+- cube-semantic/model/cubes/ml_scoring_runs.yml
+- cube-semantic/model/cubes/rai_segment_parity.yml
+- cube-semantic/model/views/scoring_freshness.yml
+- cube-semantic/model/views/segment_monitoring.yml
+component_refs: []

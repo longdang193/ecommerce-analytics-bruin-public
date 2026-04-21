@@ -1,0 +1,50 @@
+# GENERATED FILE - do not edit directly.
+# Source: docs/stages/*.source.yaml
+
+stage_id: semantic-layer
+name: Semantic Layer
+status: active
+purpose: Expose governed business metrics and dimensions through Cube for BI consumers.
+primary_features:
+- cube-semantic-layer
+supporting_features:
+- analytics-serving-layer
+inputs:
+- trusted BigQuery serving tables
+outputs:
+- Cube cubes
+- Cube views
+- governed SQL API for BI
+notes:
+- Stage ownership is declared here; feature capability participation stays in feature.source.yaml.
+feature_refs:
+- cube-semantic-layer
+capability_refs:
+- cube-semantic-layer.cube-business-views
+- cube-semantic-layer.cube-physical-table-modeling
+- cube-semantic-layer.governed-metric-definitions
+- cube-semantic-layer.looker-studio-sql-api
+code_refs: []
+test_refs: []
+doc_refs:
+- docs/lineage.md
+config_refs:
+- cube-semantic/model/cubes/funnel_daily.yml
+- cube-semantic/model/cubes/kpi_daily.yml
+- cube-semantic/model/cubes/ltv_predictions.yml
+- cube-semantic/model/cubes/ml_scoring_runs.yml
+- cube-semantic/model/cubes/rai_feature_importance.yml
+- cube-semantic/model/cubes/rai_model_eval.yml
+- cube-semantic/model/cubes/rai_prediction_drift.yml
+- cube-semantic/model/cubes/rai_segment_parity.yml
+- cube-semantic/model/cubes/rfm_segments.yml
+- cube-semantic/model/views/customer_segments.yml
+- cube-semantic/model/views/executive_kpis.yml
+- cube-semantic/model/views/feature_importance.yml
+- cube-semantic/model/views/funnel_performance.yml
+- cube-semantic/model/views/model_eval.yml
+- cube-semantic/model/views/prediction_drift.yml
+- cube-semantic/model/views/predictive_ltv.yml
+- cube-semantic/model/views/scoring_freshness.yml
+- cube-semantic/model/views/segment_monitoring.yml
+component_refs: []

@@ -1,0 +1,81 @@
+# GENERATED FILE - do not edit directly.
+# Source: docs/features/*/feature.source.yaml
+
+name: BigQuery Analytics Serving Layer
+version: '1.0'
+status: active
+type: ADD
+summary: 'Curated physical BigQuery tables produced by the Bruin pipeline. Serves as the trusted single source of truth for downstream consumers such as Cube and BI tools.
+
+  '
+invariants:
+- invariant_id: serving-dataset-boundary
+  name: Serving Dataset Boundary
+  statement: All serving tables reside in `de_pipeline` or `de_pipeline_dev`.
+  state: active
+- invariant_id: pipeline-owned-materialization
+  name: Pipeline-Owned Materialization
+  statement: Serving tables are read-only once materialized and are recreated by the pipeline on each run.
+  state: active
+- invariant_id: stable-table-names
+  name: Stable Table Names
+  statement: Table names are stable, and schema changes require a feature lifecycle.
+  state: active
+domains:
+- analytics
+- data-engineering
+depends_on:
+- data-pipeline
+capabilities:
+- capability_id: analytics-serving-layer.serving-analytics-tables
+  name: Serving Analytics Tables
+  summary: Publish curated KPI, funnel, RFM, LTV, and Responsible AI tables for downstream analytics.
+  state: active
+  satisfies:
+  - serving-dataset-boundary
+  - pipeline-owned-materialization
+  - stable-table-names
+- capability_id: analytics-serving-layer.ml-operations-tables
+  name: ML Operations Tables
+  summary: Publish model registry, training run, and scoring run tables.
+  state: active
+  satisfies:
+  - serving-dataset-boundary
+  - pipeline-owned-materialization
+  - stable-table-names
+- capability_id: analytics-serving-layer.observability-status-tables
+  name: Observability Status Tables
+  summary: Publish pipeline run, data quality, freshness, and model monitoring status tables.
+  state: active
+  satisfies:
+  - serving-dataset-boundary
+  - pipeline-owned-materialization
+  - stable-table-names
+stage_participation:
+- stage_id: serving
+  role: primary
+  capability_ids:
+  - analytics-serving-layer.serving-analytics-tables
+  - analytics-serving-layer.ml-operations-tables
+  - analytics-serving-layer.observability-status-tables
+lineage_exceptions:
+  capabilities: []
+refs:
+  docs:
+  - docs/pipeline.md
+  - docs/architecture.md
+  spec: []
+  plan: []
+  history: []
+keywords:
+- BigQuery
+- serving layer
+- KPIs
+- funnel
+- RFM
+- LTV
+- BQML
+- RAI
+- observability
+feature_id: analytics-serving-layer
+source: redacted in public mirror

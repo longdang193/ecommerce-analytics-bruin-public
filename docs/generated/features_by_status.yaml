@@ -1,0 +1,11 @@
+# GENERATED FILE - do not edit directly.
+# Source: managed architecture metadata sources
+
+features_by_status:
+  active:
+  - analytics-serving-layer
+  - cube-semantic-layer
+  - data-pipeline
+  - lineage-and-observability
+  building:
+  - deployment-cicd

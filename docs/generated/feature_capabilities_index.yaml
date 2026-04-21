@@ -1,0 +1,129 @@
+# GENERATED FILE - do not edit directly.
+# Source: managed architecture metadata sources
+
+capabilities:
+- feature_id: analytics-serving-layer
+  capability_id: analytics-serving-layer.serving-analytics-tables
+  name: Serving Analytics Tables
+  summary: Publish curated KPI, funnel, RFM, LTV, and Responsible AI tables for downstream analytics.
+  state: active
+- feature_id: analytics-serving-layer
+  capability_id: analytics-serving-layer.ml-operations-tables
+  name: ML Operations Tables
+  summary: Publish model registry, training run, and scoring run tables.
+  state: active
+- feature_id: analytics-serving-layer
+  capability_id: analytics-serving-layer.observability-status-tables
+  name: Observability Status Tables
+  summary: Publish pipeline run, data quality, freshness, and model monitoring status tables.
+  state: active
+- feature_id: cube-semantic-layer
+  capability_id: cube-semantic-layer.cube-physical-table-modeling
+  name: Cube Physical Table Modeling
+  summary: Define Cube models for the BigQuery serving tables.
+  state: active
+- feature_id: cube-semantic-layer
+  capability_id: cube-semantic-layer.cube-business-views
+  name: Cube Business Views
+  summary: Expose business-topic views for executive KPIs, funnels, segments, predictive LTV, model evaluation, and monitoring.
+  state: active
+- feature_id: cube-semantic-layer
+  capability_id: cube-semantic-layer.governed-metric-definitions
+  name: Governed Metric Definitions
+  summary: Centralize approved formulas for revenue, orders, sessions, conversion rates, model scores, parity, alerts, and drift.
+  state: active
+- feature_id: cube-semantic-layer
+  capability_id: cube-semantic-layer.looker-studio-sql-api
+  name: Looker Studio SQL API
+  summary: Support Looker Studio access through Cube Cloud's PostgreSQL-compatible SQL API.
+  state: active
+- feature_id: data-pipeline
+  capability_id: data-pipeline.staging-ga4-events
+  name: Staging GA4 Events
+  summary: Flatten nested GA4 event, device, geo, traffic, ecommerce, and event parameter fields.
+  state: active
+- feature_id: data-pipeline
+  capability_id: data-pipeline.session-customer-modeling
+  name: Session And Customer Modeling
+  summary: Build intermediate session and customer base tables from flattened events.
+  state: active
+- feature_id: data-pipeline
+  capability_id: data-pipeline.analytics-mart-materialization
+  name: Analytics Mart Materialization
+  summary: Materialize KPI, funnel, and RFM mart tables for downstream analytics.
+  state: active
+- feature_id: data-pipeline
+  capability_id: data-pipeline.ltv-feature-engineering
+  name: LTV Feature Engineering
+  summary: Build customer behavioral features and proxy LTV labels for BigQuery ML workflows.
+  state: active
+- feature_id: data-pipeline
+  capability_id: data-pipeline.responsible-ai-evaluation
+  name: Responsible AI Evaluation
+  summary: Materialize model evaluation, feature importance, parity, and prediction drift tables.
+  state: active
+- feature_id: data-pipeline
+  capability_id: data-pipeline.pipeline-observability-tables
+  name: Pipeline Observability Tables
+  summary: Produce run log, data quality, freshness, and model monitoring status tables.
+  state: active
+- feature_id: deployment-cicd
+  capability_id: deployment-cicd.environment-separated-runs
+  name: Environment-Separated Runs
+  summary: Separate dev and prod runs into `de_pipeline_dev` and `de_pipeline` datasets.
+  state: active
+- feature_id: deployment-cicd
+  capability_id: deployment-cicd.continuous-validation
+  name: Continuous Validation
+  summary: Validate Bruin pipeline definitions and Cube semantic model changes on push and pull request.
+  state: active
+- feature_id: deployment-cicd
+  capability_id: deployment-cicd.scheduled-production-run
+  name: Scheduled Production Run
+  summary: Run the production Bruin pipeline on a daily GitHub Actions schedule.
+  state: active
+- feature_id: deployment-cicd
+  capability_id: deployment-cicd.cube-cloud-auto-deploy
+  name: Cube Cloud Auto Deploy
+  summary: Rebuild Cube Cloud from pushes to `main` through the GitHub integration.
+  state: active
+- feature_id: deployment-cicd
+  capability_id: deployment-cicd.local-secret-setup
+  name: Local Secret Setup
+  summary: Document local `.env.local` usage without committing credentials.
+  state: active
+- feature_id: lineage-and-observability
+  capability_id: lineage-and-observability.data-lineage-diagram
+  name: Data Lineage Diagram
+  summary: Trace source, staging, intermediate, and mart tables.
+  state: active
+- feature_id: lineage-and-observability
+  capability_id: lineage-and-observability.ml-lineage-diagram
+  name: ML Lineage Diagram
+  summary: Trace mart tables, feature tables, BQML model training, predictions, and Responsible AI tables.
+  state: active
+- feature_id: lineage-and-observability
+  capability_id: lineage-and-observability.semantic-lineage-diagram
+  name: Semantic Lineage Diagram
+  summary: Trace BigQuery serving tables through Cube cubes, Cube views, and BI consumers.
+  state: active
+- feature_id: lineage-and-observability
+  capability_id: lineage-and-observability.observability-lineage-diagram
+  name: Observability Lineage Diagram
+  summary: Trace pipeline runs into monitoring and status tables.
+  state: active
+- feature_id: lineage-and-observability
+  capability_id: lineage-and-observability.parity-alert-monitoring
+  name: Parity Alert Monitoring
+  summary: Flag segment parity gaps above the 20 percent relative threshold.
+  state: active
+- feature_id: lineage-and-observability
+  capability_id: lineage-and-observability.scoring-freshness-view
+  name: Scoring Freshness View
+  summary: Expose model scoring freshness through Cube from `ml_scoring_runs`.
+  state: active
+- feature_id: lineage-and-observability
+  capability_id: lineage-and-observability.model-monitoring-status-enrichment
+  name: Model Monitoring Status Enrichment
+  summary: Include last scored timestamp and total rows scored in model monitoring status.
+  state: active

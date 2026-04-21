@@ -1,0 +1,1115 @@
+# GENERATED FILE - do not edit directly.
+# Source: managed architecture metadata sources
+
+nodes:
+- id: capability:analytics-serving-layer.ml-operations-tables
+  type: capability
+  label: analytics-serving-layer.ml-operations-tables
+- id: capability:analytics-serving-layer.observability-status-tables
+  type: capability
+  label: analytics-serving-layer.observability-status-tables
+- id: capability:analytics-serving-layer.serving-analytics-tables
+  type: capability
+  label: analytics-serving-layer.serving-analytics-tables
+- id: capability:cube-semantic-layer.cube-business-views
+  type: capability
+  label: cube-semantic-layer.cube-business-views
+- id: capability:cube-semantic-layer.cube-physical-table-modeling
+  type: capability
+  label: cube-semantic-layer.cube-physical-table-modeling
+- id: capability:cube-semantic-layer.governed-metric-definitions
+  type: capability
+  label: cube-semantic-layer.governed-metric-definitions
+- id: capability:cube-semantic-layer.looker-studio-sql-api
+  type: capability
+  label: cube-semantic-layer.looker-studio-sql-api
+- id: capability:data-pipeline.analytics-mart-materialization
+  type: capability
+  label: data-pipeline.analytics-mart-materialization
+- id: capability:data-pipeline.ltv-feature-engineering
+  type: capability
+  label: data-pipeline.ltv-feature-engineering
+- id: capability:data-pipeline.pipeline-observability-tables
+  type: capability
+  label: data-pipeline.pipeline-observability-tables
+- id: capability:data-pipeline.responsible-ai-evaluation
+  type: capability
+  label: data-pipeline.responsible-ai-evaluation
+- id: capability:data-pipeline.session-customer-modeling
+  type: capability
+  label: data-pipeline.session-customer-modeling
+- id: capability:data-pipeline.staging-ga4-events
+  type: capability
+  label: data-pipeline.staging-ga4-events
+- id: capability:deployment-cicd.continuous-validation
+  type: capability
+  label: deployment-cicd.continuous-validation
+- id: capability:deployment-cicd.cube-cloud-auto-deploy
+  type: capability
+  label: deployment-cicd.cube-cloud-auto-deploy
+- id: capability:deployment-cicd.environment-separated-runs
+  type: capability
+  label: deployment-cicd.environment-separated-runs
+- id: capability:deployment-cicd.local-secret-setup
+  type: capability
+  label: deployment-cicd.local-secret-setup
+- id: capability:deployment-cicd.scheduled-production-run
+  type: capability
+  label: deployment-cicd.scheduled-production-run
+- id: capability:lineage-and-observability.data-lineage-diagram
+  type: capability
+  label: lineage-and-observability.data-lineage-diagram
+- id: capability:lineage-and-observability.ml-lineage-diagram
+  type: capability
+  label: lineage-and-observability.ml-lineage-diagram
+- id: capability:lineage-and-observability.model-monitoring-status-enrichment
+  type: capability
+  label: lineage-and-observability.model-monitoring-status-enrichment
+- id: capability:lineage-and-observability.observability-lineage-diagram
+  type: capability
+  label: lineage-and-observability.observability-lineage-diagram
+- id: capability:lineage-and-observability.parity-alert-monitoring
+  type: capability
+  label: lineage-and-observability.parity-alert-monitoring
+- id: capability:lineage-and-observability.scoring-freshness-view
+  type: capability
+  label: lineage-and-observability.scoring-freshness-view
+- id: capability:lineage-and-observability.semantic-lineage-diagram
+  type: capability
+  label: lineage-and-observability.semantic-lineage-diagram
+- id: evidence:.github/workflows/ci.yml
+  type: config
+  label: .github/workflows/ci.yml
+- id: evidence:.github/workflows/scheduled-run.yml
+  type: config
+  label: .github/workflows/scheduled-run.yml
+- id: evidence:agent_config.yaml
+  type: config
+  label: agent_config.yaml
+- id: evidence:assets/1_staging/stg_events_flat.sql
+  type: code
+  label: assets/1_staging/stg_events_flat.sql
+- id: evidence:assets/2_intermediate/int_customers.sql
+  type: code
+  label: assets/2_intermediate/int_customers.sql
+- id: evidence:assets/2_intermediate/int_sessions.sql
+  type: code
+  label: assets/2_intermediate/int_sessions.sql
+- id: evidence:assets/3_marts/funnel_daily.sql
+  type: code
+  label: assets/3_marts/funnel_daily.sql
+- id: evidence:assets/3_marts/kpi_daily.sql
+  type: code
+  label: assets/3_marts/kpi_daily.sql
+- id: evidence:assets/3_marts/rfm_segments.sql
+  type: code
+  label: assets/3_marts/rfm_segments.sql
+- id: evidence:assets/4_ml/ltv_features.sql
+  type: code
+  label: assets/4_ml/ltv_features.sql
+- id: evidence:assets/4_ml/ltv_model_train.sql
+  type: code
+  label: assets/4_ml/ltv_model_train.sql
+- id: evidence:assets/4_ml/ltv_prediction_history.sql
+  type: code
+  label: assets/4_ml/ltv_prediction_history.sql
+- id: evidence:assets/4_ml/ltv_predictions.sql
+  type: code
+  label: assets/4_ml/ltv_predictions.sql
+- id: evidence:assets/4_ml/ml_model_registry.sql
+  type: code
+  label: assets/4_ml/ml_model_registry.sql
+- id: evidence:assets/4_ml/ml_scoring_runs.sql
+  type: code
+  label: assets/4_ml/ml_scoring_runs.sql
+- id: evidence:assets/4_ml/ml_training_runs.sql
+  type: code
+  label: assets/4_ml/ml_training_runs.sql
+- id: evidence:assets/5_rai/rai_feature_importance.sql
+  type: code
+  label: assets/5_rai/rai_feature_importance.sql
+- id: evidence:assets/5_rai/rai_model_eval.sql
+  type: code
+  label: assets/5_rai/rai_model_eval.sql
+- id: evidence:assets/5_rai/rai_prediction_drift.sql
+  type: code
+  label: assets/5_rai/rai_prediction_drift.sql
+- id: evidence:assets/5_rai/rai_segment_parity.sql
+  type: code
+  label: assets/5_rai/rai_segment_parity.sql
+- id: evidence:assets/6_observability/data_quality_results.sql
+  type: code
+  label: assets/6_observability/data_quality_results.sql
+- id: evidence:assets/6_observability/model_monitoring_status.sql
+  type: code
+  label: assets/6_observability/model_monitoring_status.sql
+- id: evidence:assets/6_observability/pipeline_run_log.sql
+  type: code
+  label: assets/6_observability/pipeline_run_log.sql
+- id: evidence:assets/6_observability/table_freshness_status.sql
+  type: code
+  label: assets/6_observability/table_freshness_status.sql
+- id: evidence:cube-semantic/model/cubes/funnel_daily.yml
+  type: config
+  label: cube-semantic/model/cubes/funnel_daily.yml
+- id: evidence:cube-semantic/model/cubes/kpi_daily.yml
+  type: config
+  label: cube-semantic/model/cubes/kpi_daily.yml
+- id: evidence:cube-semantic/model/cubes/ltv_predictions.yml
+  type: config
+  label: cube-semantic/model/cubes/ltv_predictions.yml
+- id: evidence:cube-semantic/model/cubes/ml_scoring_runs.yml
+  type: config
+  label: cube-semantic/model/cubes/ml_scoring_runs.yml
+- id: evidence:cube-semantic/model/cubes/rai_feature_importance.yml
+  type: config
+  label: cube-semantic/model/cubes/rai_feature_importance.yml
+- id: evidence:cube-semantic/model/cubes/rai_model_eval.yml
+  type: config
+  label: cube-semantic/model/cubes/rai_model_eval.yml
+- id: evidence:cube-semantic/model/cubes/rai_prediction_drift.yml
+  type: config
+  label: cube-semantic/model/cubes/rai_prediction_drift.yml
+- id: evidence:cube-semantic/model/cubes/rai_segment_parity.yml
+  type: config
+  label: cube-semantic/model/cubes/rai_segment_parity.yml
+- id: evidence:cube-semantic/model/cubes/rfm_segments.yml
+  type: config
+  label: cube-semantic/model/cubes/rfm_segments.yml
+- id: evidence:cube-semantic/model/views/customer_segments.yml
+  type: config
+  label: cube-semantic/model/views/customer_segments.yml
+- id: evidence:cube-semantic/model/views/executive_kpis.yml
+  type: config
+  label: cube-semantic/model/views/executive_kpis.yml
+- id: evidence:cube-semantic/model/views/feature_importance.yml
+  type: config
+  label: cube-semantic/model/views/feature_importance.yml
+- id: evidence:cube-semantic/model/views/funnel_performance.yml
+  type: config
+  label: cube-semantic/model/views/funnel_performance.yml
+- id: evidence:cube-semantic/model/views/model_eval.yml
+  type: config
+  label: cube-semantic/model/views/model_eval.yml
+- id: evidence:cube-semantic/model/views/prediction_drift.yml
+  type: config
+  label: cube-semantic/model/views/prediction_drift.yml
+- id: evidence:cube-semantic/model/views/predictive_ltv.yml
+  type: config
+  label: cube-semantic/model/views/predictive_ltv.yml
+- id: evidence:cube-semantic/model/views/scoring_freshness.yml
+  type: config
+  label: cube-semantic/model/views/scoring_freshness.yml
+- id: evidence:cube-semantic/model/views/segment_monitoring.yml
+  type: config
+  label: cube-semantic/model/views/segment_monitoring.yml
+- id: evidence:docs/lineage.md
+  type: doc
+  label: docs/lineage.md
+- id: evidence:pipeline.yml
+  type: config
+  label: pipeline.yml
+- id: feature:analytics-serving-layer
+  type: feature
+  label: BigQuery Analytics Serving Layer
+- id: feature:cube-semantic-layer
+  type: feature
+  label: Cube Semantic Layer
+- id: feature:data-pipeline
+  type: feature
+  label: GA4 â†’ BigQuery Data Pipeline
+- id: feature:deployment-cicd
+  type: feature
+  label: Deployment + CI/CD
+- id: feature:lineage-and-observability
+  type: feature
+  label: Lineage + Observability
+- id: stage:data-engineering
+  type: stage
+  label: Data Engineering
+- id: stage:deployment
+  type: stage
+  label: Deployment
+- id: stage:observability
+  type: stage
+  label: Observability
+- id: stage:semantic-layer
+  type: stage
+  label: Semantic Layer
+- id: stage:serving
+  type: stage
+  label: Analytics Serving
+edges:
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:deployment
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:deployment
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:deployment
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:deployment
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:deployment
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: participates_in
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: participates_in
+- Source: redacted in public mirror
+  target: capability:deployment-cicd.continuous-validation
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:deployment-cicd
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:deployment
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:deployment-cicd.environment-separated-runs
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:deployment-cicd.scheduled-production-run
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:deployment-cicd
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:deployment
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:deployment-cicd.local-secret-setup
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:deployment-cicd
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:deployment
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.staging-ga4-events
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.session-customer-modeling
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.session-customer-modeling
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.serving-analytics-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.analytics-mart-materialization
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.serving-analytics-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.analytics-mart-materialization
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.serving-analytics-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.analytics-mart-materialization
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.ltv-feature-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.responsible-ai-evaluation
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.serving-analytics-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.responsible-ai-evaluation
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.serving-analytics-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.responsible-ai-evaluation
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.ml-operations-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.ml-operations-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.scoring-freshness-view
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:lineage-and-observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.ml-operations-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.serving-analytics-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.responsible-ai-evaluation
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.serving-analytics-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.responsible-ai-evaluation
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.serving-analytics-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.responsible-ai-evaluation
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.serving-analytics-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.responsible-ai-evaluation
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.parity-alert-monitoring
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:lineage-and-observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.observability-status-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.pipeline-observability-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.observability-lineage-diagram
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:lineage-and-observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.observability-status-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.pipeline-observability-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.model-monitoring-status-enrichment
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:lineage-and-observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.observability-status-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.pipeline-observability-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.observability-lineage-diagram
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:lineage-and-observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.observability-status-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:data-pipeline.pipeline-observability-tables
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.observability-lineage-diagram
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:lineage-and-observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-physical-table-modeling
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-physical-table-modeling
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-physical-table-modeling
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-physical-table-modeling
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.scoring-freshness-view
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:lineage-and-observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-physical-table-modeling
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-physical-table-modeling
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-physical-table-modeling
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-physical-table-modeling
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.parity-alert-monitoring
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:lineage-and-observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-physical-table-modeling
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-business-views
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-business-views
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-business-views
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-business-views
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-business-views
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-business-views
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-business-views
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-business-views
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.scoring-freshness-view
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:lineage-and-observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-business-views
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.parity-alert-monitoring
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:lineage-and-observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.data-lineage-diagram
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.ml-lineage-diagram
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.observability-lineage-diagram
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.semantic-lineage-diagram
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:lineage-and-observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:deployment-cicd.environment-separated-runs
+  relation: evidences
+- Source: redacted in public mirror
+  target: feature:deployment-cicd
+  relation: evidences
+- Source: redacted in public mirror
+  target: stage:deployment
+  relation: evidences
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.ml-operations-tables
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.observability-status-tables
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:analytics-serving-layer.serving-analytics-tables
+  relation: owns
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: depends_on
+- Source: redacted in public mirror
+  target: stage:serving
+  relation: participates_in
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-business-views
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.cube-physical-table-modeling
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.governed-metric-definitions
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:cube-semantic-layer.looker-studio-sql-api
+  relation: owns
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: depends_on
+- Source: redacted in public mirror
+  target: stage:semantic-layer
+  relation: participates_in
+- Source: redacted in public mirror
+  target: capability:data-pipeline.analytics-mart-materialization
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:data-pipeline.ltv-feature-engineering
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:data-pipeline.pipeline-observability-tables
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:data-pipeline.responsible-ai-evaluation
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:data-pipeline.session-customer-modeling
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:data-pipeline.staging-ga4-events
+  relation: owns
+- Source: redacted in public mirror
+  target: stage:data-engineering
+  relation: participates_in
+- Source: redacted in public mirror
+  target: capability:deployment-cicd.continuous-validation
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:deployment-cicd.cube-cloud-auto-deploy
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:deployment-cicd.environment-separated-runs
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:deployment-cicd.local-secret-setup
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:deployment-cicd.scheduled-production-run
+  relation: owns
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: depends_on
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: depends_on
+- Source: redacted in public mirror
+  target: stage:deployment
+  relation: participates_in
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.data-lineage-diagram
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.ml-lineage-diagram
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.model-monitoring-status-enrichment
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.observability-lineage-diagram
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.parity-alert-monitoring
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.scoring-freshness-view
+  relation: owns
+- Source: redacted in public mirror
+  target: capability:lineage-and-observability.semantic-lineage-diagram
+  relation: owns
+- Source: redacted in public mirror
+  target: feature:analytics-serving-layer
+  relation: depends_on
+- Source: redacted in public mirror
+  target: feature:cube-semantic-layer
+  relation: depends_on
+- Source: redacted in public mirror
+  target: feature:data-pipeline
+  relation: depends_on
+- Source: redacted in public mirror
+  target: stage:observability
+  relation: participates_in

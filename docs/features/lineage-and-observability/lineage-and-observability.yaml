@@ -1,0 +1,108 @@
+# GENERATED FILE - do not edit directly.
+# Source: docs/features/*/feature.source.yaml
+
+name: Lineage + Observability
+version: '1.0'
+status: active
+type: ADD
+summary: 'First-class lineage traceability from source to mart, model, prediction, and BI, plus operational monitoring tables covering pipeline runs, data quality, freshness, model training/scoring, and Responsible AI alerts.
+
+  '
+invariants:
+- invariant_id: lineage-in-docs
+  name: Lineage In Docs
+  statement: Lineage is documented as Mermaid diagrams in `docs/lineage.md`, not stored in a catalog.
+  state: active
+- invariant_id: parity-alert-threshold
+  name: Parity Alert Threshold
+  statement: '`parity_alert` fires when `|parity_gap| / global_avg > 0.20`.'
+  state: active
+- invariant_id: observability-mvp-placeholders
+  name: Observability MVP Placeholders
+  statement: Observability tables are materialized by Bruin or BQML, and placeholder SQL is acceptable for MVP.
+  state: active
+domains:
+- data-engineering
+- ml-ops
+- analytics
+depends_on:
+- data-pipeline
+- analytics-serving-layer
+- cube-semantic-layer
+capabilities:
+- capability_id: lineage-and-observability.data-lineage-diagram
+  name: Data Lineage Diagram
+  summary: Trace source, staging, intermediate, and mart tables.
+  state: active
+  satisfies:
+  - lineage-in-docs
+- capability_id: lineage-and-observability.ml-lineage-diagram
+  name: ML Lineage Diagram
+  summary: Trace mart tables, feature tables, BQML model training, predictions, and Responsible AI tables.
+  state: active
+  satisfies:
+  - lineage-in-docs
+- capability_id: lineage-and-observability.semantic-lineage-diagram
+  name: Semantic Lineage Diagram
+  summary: Trace BigQuery serving tables through Cube cubes, Cube views, and BI consumers.
+  state: active
+  satisfies:
+  - lineage-in-docs
+- capability_id: lineage-and-observability.observability-lineage-diagram
+  name: Observability Lineage Diagram
+  summary: Trace pipeline runs into monitoring and status tables.
+  state: active
+  satisfies:
+  - lineage-in-docs
+  - observability-mvp-placeholders
+- capability_id: lineage-and-observability.parity-alert-monitoring
+  name: Parity Alert Monitoring
+  summary: Flag segment parity gaps above the 20 percent relative threshold.
+  state: active
+  satisfies:
+  - parity-alert-threshold
+  - observability-mvp-placeholders
+- capability_id: lineage-and-observability.scoring-freshness-view
+  name: Scoring Freshness View
+  summary: Expose model scoring freshness through Cube from `ml_scoring_runs`.
+  state: active
+  satisfies:
+  - observability-mvp-placeholders
+- capability_id: lineage-and-observability.model-monitoring-status-enrichment
+  name: Model Monitoring Status Enrichment
+  summary: Include last scored timestamp and total rows scored in model monitoring status.
+  state: active
+  satisfies:
+  - observability-mvp-placeholders
+stage_participation:
+- stage_id: observability
+  role: primary
+  capability_ids:
+  - lineage-and-observability.data-lineage-diagram
+  - lineage-and-observability.ml-lineage-diagram
+  - lineage-and-observability.semantic-lineage-diagram
+  - lineage-and-observability.observability-lineage-diagram
+  - lineage-and-observability.parity-alert-monitoring
+  - lineage-and-observability.scoring-freshness-view
+  - lineage-and-observability.model-monitoring-status-enrichment
+lineage_exceptions:
+  capabilities: []
+refs:
+  docs:
+  - docs/lineage.md
+  - docs/architecture.md
+  - docs/pipeline.md
+  spec: []
+  plan: []
+  history: []
+keywords:
+- lineage
+- observability
+- data quality
+- freshness
+- model monitoring
+- drift
+- parity
+- Mermaid
+feature_id: lineage-and-observability
+source: redacted in public mirror

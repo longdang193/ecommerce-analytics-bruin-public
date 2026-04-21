@@ -1,0 +1,100 @@
+# GENERATED FILE - do not edit directly.
+# Source: docs/features/*/feature.source.yaml
+
+name: Cube Semantic Layer
+version: '1.0'
+status: active
+type: ADD
+summary: 'Open-source semantic layer deployed on Cube Cloud. Defines cubes, views, and shared measures/dimensions once in YAML so dashboards consume governed metrics instead of redefining them per report.
+
+  '
+invariants:
+- invariant_id: cube-cloud-deployment
+  name: Cube Cloud Deployment
+  statement: Cube is deployed to Cube Cloud in GCP us-central1 free tier.
+  state: active
+- invariant_id: local-playground-only
+  name: Local Playground Only
+  statement: Dev Playground runs on localhost:4000 for local development only.
+  state: active
+- invariant_id: sql-api-protocol
+  name: SQL API Protocol
+  statement: BI access uses Cube Cloud's PostgreSQL-compatible SQL API.
+  state: active
+- invariant_id: weighted-ratio-measures
+  name: Weighted Ratio Measures
+  statement: Measures use SUM/SUM ratios rather than AVG of pre-computed ratios.
+  state: active
+- invariant_id: single-cube-views
+  name: Single-Cube Views
+  statement: Views are single-cube only because source cubes have incompatible grains.
+  state: active
+domains:
+- analytics
+- bi
+depends_on:
+- analytics-serving-layer
+capabilities:
+- capability_id: cube-semantic-layer.cube-physical-table-modeling
+  name: Cube Physical Table Modeling
+  summary: Define Cube models for the BigQuery serving tables.
+  state: active
+  satisfies:
+  - cube-cloud-deployment
+  - local-playground-only
+- capability_id: cube-semantic-layer.cube-business-views
+  name: Cube Business Views
+  summary: Expose business-topic views for executive KPIs, funnels, segments, predictive LTV, model evaluation, and monitoring.
+  state: active
+  satisfies:
+  - single-cube-views
+- capability_id: cube-semantic-layer.governed-metric-definitions
+  name: Governed Metric Definitions
+  summary: Centralize approved formulas for revenue, orders, sessions, conversion rates, model scores, parity, alerts, and drift.
+  state: active
+  satisfies:
+  - weighted-ratio-measures
+- capability_id: cube-semantic-layer.looker-studio-sql-api
+  name: Looker Studio SQL API
+  summary: Support Looker Studio access through Cube Cloud's PostgreSQL-compatible SQL API.
+  state: active
+  satisfies:
+  - sql-api-protocol
+stage_participation:
+- stage_id: semantic-layer
+  role: primary
+  capability_ids:
+  - cube-semantic-layer.cube-physical-table-modeling
+  - cube-semantic-layer.cube-business-views
+  - cube-semantic-layer.governed-metric-definitions
+  - cube-semantic-layer.looker-studio-sql-api
+lineage_exceptions:
+  capabilities:
+  - reason: 'Looker Studio connectivity is configured in Cube Cloud and Looker Studio outside this repo. Repo-owned Cube YAML defines the semantic surface, but the BI SQL API connection itself is external.
+
+      '
+    allowed_gaps:
+    - missing_source_evidence
+    - missing_test_evidence
+    capability_ids:
+    - cube-semantic-layer.looker-studio-sql-api
+refs:
+  docs:
+  - docs/architecture.md
+  - docs/pipeline.md
+  spec: []
+  plan: []
+  history: []
+keywords:
+- Cube
+- semantic layer
+- cubes
+- views
+- measures
+- dimensions
+- Looker Studio
+- BI
+- PostgreSQL
+- Cube Cloud
+feature_id: cube-semantic-layer
+source: redacted in public mirror

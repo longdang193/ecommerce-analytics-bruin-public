@@ -1,0 +1,118 @@
+# GENERATED FILE - do not edit directly.
+# Source: docs/features/*/feature.source.yaml
+
+name: GA4 â†’ BigQuery Data Pipeline
+version: '1.0'
+status: active
+type: ADD
+summary: 'End-to-end ELT pipeline that reads GA4 ecommerce events from BigQuery public data, flattens nested fields, builds intermediate customer/session base tables, and materializes analytics marts, ML feature tables, Responsible AI evaluation tables, and observability tables orchestrated by Bruin.
+
+  '
+invariants:
+- invariant_id: bounded-ga4-source
+  name: Bounded GA4 Source
+  statement: Source reads from `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*` for 2020-11-01 through 2021-01-31.
+  state: active
+- invariant_id: project-placeholder
+  name: Project Placeholder
+  statement: All SQL assets use `<PROJECT>` as the GCP project placeholder.
+  state: active
+- invariant_id: destination-dataset-boundary
+  name: Destination Dataset Boundary
+  statement: Pipeline writes only to `<PROJECT>.de_pipeline` or `<PROJECT>.de_pipeline_dev`.
+  state: active
+- invariant_id: source-read-only
+  name: Source Read Only
+  statement: Pipeline is read-only on the public source dataset.
+  state: active
+- invariant_id: batch-sample-read
+  name: Batch Sample Read
+  statement: The public sample is bounded, so pipeline reads are batch, not incremental.
+  state: active
+domains:
+- data-engineering
+- analytics
+- ml-ops
+depends_on: []
+capabilities:
+- capability_id: data-pipeline.staging-ga4-events
+  name: Staging GA4 Events
+  summary: Flatten nested GA4 event, device, geo, traffic, ecommerce, and event parameter fields.
+  state: active
+  satisfies:
+  - bounded-ga4-source
+  - project-placeholder
+  - source-read-only
+  - batch-sample-read
+- capability_id: data-pipeline.session-customer-modeling
+  name: Session And Customer Modeling
+  summary: Build intermediate session and customer base tables from flattened events.
+  state: active
+  satisfies:
+  - destination-dataset-boundary
+  - project-placeholder
+- capability_id: data-pipeline.analytics-mart-materialization
+  name: Analytics Mart Materialization
+  summary: Materialize KPI, funnel, and RFM mart tables for downstream analytics.
+  state: active
+  satisfies:
+  - destination-dataset-boundary
+  - project-placeholder
+- capability_id: data-pipeline.ltv-feature-engineering
+  name: LTV Feature Engineering
+  summary: Build customer behavioral features and proxy LTV labels for BigQuery ML workflows.
+  state: active
+  satisfies:
+  - destination-dataset-boundary
+  - project-placeholder
+- capability_id: data-pipeline.responsible-ai-evaluation
+  name: Responsible AI Evaluation
+  summary: Materialize model evaluation, feature importance, parity, and prediction drift tables.
+  state: active
+  satisfies:
+  - destination-dataset-boundary
+  - project-placeholder
+- capability_id: data-pipeline.pipeline-observability-tables
+  name: Pipeline Observability Tables
+  summary: Produce run log, data quality, freshness, and model monitoring status tables.
+  state: active
+  satisfies:
+  - destination-dataset-boundary
+  - project-placeholder
+stage_participation:
+- stage_id: data-engineering
+  role: primary
+  capability_ids:
+  - data-pipeline.staging-ga4-events
+  - data-pipeline.session-customer-modeling
+  - data-pipeline.analytics-mart-materialization
+  - data-pipeline.ltv-feature-engineering
+  - data-pipeline.responsible-ai-evaluation
+  - data-pipeline.pipeline-observability-tables
+lineage_exceptions:
+  capabilities: []
+refs:
+  docs:
+  - docs/pipeline.md
+  - docs/architecture.md
+  - docs/bigquery-public-data.ga4_obfuscated_sample_ecommerce Dataset.md
+  spec: []
+  plan: []
+  history: []
+keywords:
+- GA4
+- BigQuery
+- Bruin
+- ELT
+- staging
+- sessions
+- customers
+- KPIs
+- funnel
+- RFM
+- LTV
+- BQML
+- Responsible AI
+- observability
+feature_id: data-pipeline
+source: redacted in public mirror

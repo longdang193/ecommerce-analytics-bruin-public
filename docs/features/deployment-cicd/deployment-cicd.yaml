@@ -1,0 +1,116 @@
+# GENERATED FILE - do not edit directly.
+# Source: docs/features/*/feature.source.yaml
+
+name: Deployment + CI/CD
+version: '1.0'
+status: building
+type: ADD
+summary: 'GitHub Actions deployment layer for the Bruin pipeline and Cube semantic model. Provides environment separation, CI validation, scheduled production runs, and Cube Cloud auto-deploy on git push.
+
+  '
+invariants:
+- invariant_id: no-bruin-docker-production
+  name: No Bruin Docker Production
+  statement: Bruin runs as a CLI binary calling BigQuery over HTTPS rather than through Docker.
+  state: active
+- invariant_id: cube-compose-local-only
+  name: Cube Compose Local Only
+  statement: '`cube-semantic/docker-compose.yml` is for Cube local development only.'
+  state: active
+- invariant_id: credentials-in-github-secret
+  name: Credentials In GitHub Secret
+  statement: GCP credentials are stored as `GCP_SERVICE_ACCOUNT_KEY` and never committed.
+  state: active
+- invariant_id: ubuntu-actions-runners
+  name: Ubuntu Actions Runners
+  statement: Workflows run on `ubuntu-latest` runners.
+  state: active
+- invariant_id: manual-workflow-dispatch
+  name: Manual Workflow Dispatch
+  statement: Scheduled run workflow supports `workflow_dispatch` for manual triggers.
+  state: active
+domains:
+- data-engineering
+- devops
+depends_on:
+- data-pipeline
+- cube-semantic-layer
+capabilities:
+- capability_id: deployment-cicd.environment-separated-runs
+  name: Environment-Separated Runs
+  summary: Separate dev and prod runs into `de_pipeline_dev` and `de_pipeline` datasets.
+  state: active
+  satisfies:
+  - no-bruin-docker-production
+- capability_id: deployment-cicd.continuous-validation
+  name: Continuous Validation
+  summary: Validate Bruin pipeline definitions and Cube semantic model changes on push and pull request.
+  state: active
+  satisfies:
+  - ubuntu-actions-runners
+- capability_id: deployment-cicd.scheduled-production-run
+  name: Scheduled Production Run
+  summary: Run the production Bruin pipeline on a daily GitHub Actions schedule.
+  state: active
+  satisfies:
+  - ubuntu-actions-runners
+  - manual-workflow-dispatch
+  - no-bruin-docker-production
+- capability_id: deployment-cicd.cube-cloud-auto-deploy
+  name: Cube Cloud Auto Deploy
+  summary: Rebuild Cube Cloud from pushes to `main` through the GitHub integration.
+  state: active
+  satisfies:
+  - cube-compose-local-only
+- capability_id: deployment-cicd.local-secret-setup
+  name: Local Secret Setup
+  summary: Document local `.env.local` usage without committing credentials.
+  state: active
+  satisfies:
+  - credentials-in-github-secret
+stage_participation:
+- stage_id: deployment
+  role: primary
+  capability_ids:
+  - deployment-cicd.environment-separated-runs
+  - deployment-cicd.continuous-validation
+  - deployment-cicd.scheduled-production-run
+  - deployment-cicd.cube-cloud-auto-deploy
+  - deployment-cicd.local-secret-setup
+lineage_exceptions:
+  capabilities:
+  - reason: 'Cube Cloud auto-deploy is owned by the external Cube Cloud GitHub integration, not by a repo-owned workflow or config file.
+
+      '
+    allowed_gaps:
+    - missing_source_evidence
+    - missing_test_evidence
+    capability_ids:
+    - deployment-cicd.cube-cloud-auto-deploy
+rollback_trigger: 'BigQuery `de_pipeline.kpi_daily.last_modified_time` does not update after a scheduled run completes.
+
+  '
+rollback_method: 'Re-run `bruin run --environment prod` manually via GitHub Actions workflow_dispatch, or disable the scheduled-run workflow in GitHub Actions UI.
+
+  '
+refs:
+  docs:
+  - docs/architecture.md
+  - docs/configuration.md
+  - docs/usage.md
+  spec: []
+  plan: []
+  history: []
+keywords:
+- GitHub Actions
+- CI
+- CD
+- Bruin
+- Cube
+- BigQuery
+- GCP
+- environment separation
+- scheduled run
+- deployment
+feature_id: deployment-cicd
+source: redacted in public mirror

@@ -1,0 +1,39 @@
+# GENERATED FILE - do not edit directly.
+# Source: docs/stages/*.source.yaml
+
+stage_id: deployment
+name: Deployment
+status: building
+purpose: Validate, schedule, and deploy the Bruin pipeline and Cube semantic model.
+primary_features:
+- deployment-cicd
+supporting_features:
+- data-pipeline
+- cube-semantic-layer
+inputs:
+- repository source
+- GitHub Actions workflows
+- GCP credentials from GitHub Secrets
+outputs:
+- validated pull requests
+- scheduled production pipeline runs
+- Cube Cloud rebuilds
+notes:
+- Stage ownership is declared here; feature capability participation stays in feature.source.yaml.
+feature_refs:
+- deployment-cicd
+capability_refs:
+- deployment-cicd.continuous-validation
+- deployment-cicd.cube-cloud-auto-deploy
+- deployment-cicd.environment-separated-runs
+- deployment-cicd.local-secret-setup
+- deployment-cicd.scheduled-production-run
+code_refs: []
+test_refs: []
+doc_refs: []
+config_refs:
+- .github/workflows/ci.yml
+- .github/workflows/scheduled-run.yml
+- agent_config.yaml
+- pipeline.yml
+component_refs: []
